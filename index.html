@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlynXe 🌙</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="slynxe.png" type="image/png"> <!-- Favicon -->
+    <link rel="shortcut icon" href="slynxe.png" type="image/png"> <!-- Favicon -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212; /* Fond sombre */
+            color: #e0e0e0;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        header {
+            background: url('https://cdn.discordapp.com/attachments/863888458845650984/1302827469841104906/8980fea9be549f56d6c99426964df374.png?ex=67298822&is=672836a2&hm=9152f00d9e9e362a0c773525b58b5fe9757eac94fcc4130bbedb64f92b1d3068&') no-repeat center center/cover; /* Image de fond */
+            padding: 100px 20px; /* Plus d'espace en haut */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            position: relative;
+            color: #E1BEE7; /* Texte clair */
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Couche sombre pour améliorer la lisibilité du texte */
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 4.5em; /* Augmentation de la taille */
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Ombre plus prononcée */
+            position: relative;
+            z-index: 2;
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin-top: 10px;
+            z-index: 2;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        main:hover {
+            transform: translateY(-5px); /* Effet de flottement */
+        }
+
+        section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #2E2E2E;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s;
+        }
+
+        section:hover {
+            background-color: #3E3E3E; /* Changement de couleur au survol */
+        }
+
+        h2 {
+            color: #E1BEE7; /* Texte clair */
+            margin-bottom: 15px;
+            font-size: 2.5em;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 50px;
+            background: #D5006D; /* Accent */
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+
+        .about p,
+        .contact p {
+            font-size: 1.2em;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .skill {
+            background-color: #E1BEE7; /* Violet clair */
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+            display: flex;
+            align-items: center; /* Centrer le texte verticalement */
+        }
+
+        .skill i {
+            margin-right: 10px; /* Espace entre l'icône et le texte */
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+            background-color: #A44CD0; /* Violet plus clair au survol */
+        }
+
+        .experience-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille réactive */
+            text-align: left;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .experience-item {
+            background-color: #3E3E3E;
+            padding: 15px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: scale(1.05); /* Légère augmentation au survol */
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #888;
+            padding: 10px 0;
+            border-top: 1px solid #444;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Styles pour les liens */
+        a {
+            color: #E1BEE7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #D5006D; /* Couleur au survol */
+        }
+
+        /* Styles pour le profil Discord */
+        .discord-profile {
+            margin: 20px 0;
+        }
+
+        .discord-profile img {
+            border-radius: 8px; /* Bord arrondi pour l'image */
+            width: 100%; /* Ajuste à la largeur du conteneur */
+            max-width: 450px; /* Limite la taille de l'image */
+            height: auto; /* Ajuste la hauteur automatiquement */
+            transition: transform 0.3s;
+        }
+
+        .discord-profile img:hover {
+            transform: scale(1.05); /* Effet de zoom au survol */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>'SlynXe</h1>
+        <p>Développeur passionné par la technologie et les jeux.</p>
+    </header>
+
+    <main>
+        <section class="discord-profile">
+            <img src="https://readme-typing-svg.demolab.com?font=Italia+Moderna&pause=1000&color=E1BEE7&center=true&width=435&lines='SlynXe%2C+D%C3%A9veloppeur+full+stack;Merci+de+visiter+mon+site+web+!" alt="Typing SVG Animation">
+            <a href="https://discord.com/channels/@me/705852034695561256">
+                <img src="https://discord.c99.nl/widget/theme-4/705852034695561256.png" alt="contact me">
+            </a>
+        </section>
+
+        <section class="about">
+            <h2>À Propos de Moi</h2>
+            <p>Hello! Je suis Esteban Eck, également connu sous le nom de SlynXe. Je suis un jeune développeur qui a commencé à programmer à l'âge de 11 ans. Aujourd'hui, à 16 ans, ma passion pour le développement de jeux et d'applications n'a cessé de grandir. J'ai acquis une expertise particulière dans la création de ressources pour des serveurs de jeux tels que FiveM, ainsi que dans le développement de bots pour Discord. Mon objectif est de continuer à apprendre et à innover dans ce domaine fascinant!</p>
+        </section>
+
+        <section class="skills">
+            <h2>Mes Compétences</h2>
+            <div class="skills-list">
+                <div class="skill"><i class="fas fa-code"></i>Développement web</div>
+                <div class="skill"><i class="fas fa-gamepad"></i>Scripts pour FiveM</div>
+                <div class="skill"><i class="fas fa-bot"></i>Bots pour Discord</div>
+                <div class="skill"><i class="fas fa-database"></i>Base de données avec MySQL</div>
+                <div class="skill"><i class="fas fa-blender"></i>Utilisation du logiciel 3D Blender</div>
+            </div>
+        </section>
+
+        <section class="experience">
+            <h2>Expériences</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+            <a href="https://discord.gg/andarisrp" target="_blank" style="color: inherit; text-decoration: none;">
+                AndarisRP : Fondateur
+            </a>
+        </div>
+                <div class="experience-item">RésistanceRP (2021-2024) : Assistant développement</div>
+                <div class="experience-item">PulsarRP (2021-2022) : Fondateur</div>
+                <div class="experience-item">FunBot (2019-2020) : Créateur</div>
+            </div>
+        </section>
+        
+        <section class="badges">
+            <h2>Technologies Utilisées</h2>
+            <h3>Languages :</h3>
+            <p>
+                <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white" alt="Java">
+                <img src="https://img.shields.io/badge/HTML5%20-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+                <img src="https://img.shields.io/badge/CSS%20-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+                <img src="https://img.shields.io/badge/JavaScript%20-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+                <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" alt="NodeJS">
+                <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
+            </p>
+            <h3>Base de données :</h3>
+            <p>
+                <img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+            </p>
+            <h3>Logiciels et Outils :</h3>
+            <p>
+                <img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white" alt="Spring">
+                <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" alt="Git">
+                <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+                <img src="https://img.shields.io/badge/google-%234285F4.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google">
+                <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Visual Studio Code">
+            </p>
+        </section>
+
+        <section class="contact">
+            <h2>Contactez-moi</h2>
+            <p>Vous pouvez me joindre via mes réseaux sociaux ou par email.</p>
+            <ul>
+                <li>Email: <a href="mailto:esteban.eck@slynxe.fr">esteban.eck@slynxe.fr</a></li>
+                <li>Twitter: <a href="https://twitter.com/iTzSlynXeD" target="_blank">@iTzSlynXeD</a></li>
+                <li>GitHub: <a href="https://github.com/slynxe" target="_blank">github.com/slynxe</a></li>
+                <li>Guns.lol: <a href="https://guns.lol/slynxe" target="_blank">guns.lol/slynxe</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SlynXe. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Intégration de FontAwesome pour les icônes -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
