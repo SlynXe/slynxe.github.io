@@ -121,7 +121,7 @@
 </head>
 <body>
     <!-- Vidéo de fond en plein écran -->
-    <video id="background-video" autoplay loop class="background-video">
+    <video id="background-video" autoplay muted loop class="background-video">
         <source src="https://cdn.discordapp.com/attachments/1286420716907921428/1301220158223945728/Cote_edit.mp4?ex=672aef75&is=67299df5&hm=b729d25ba6ae34f6d2b8574d307bd6989a52c9e36e29af471d9acfb73c35375d&" type="video/mp4">
         Votre navigateur ne supporte pas les vidéos HTML5.
     </video>
@@ -150,8 +150,13 @@
         const video = document.getElementById('background-video');
         const volumeRange = document.getElementById('volume-range');
 
-        // Réglez le volume à 50 % par défaut
+        // Définir le volume par défaut
         video.volume = 0.5;
+
+        // Retirer le mute après le démarrage de la vidéo
+        video.addEventListener('play', () => {
+            video.muted = false;
+        });
 
         // Écouteur d'événements pour le contrôle de volume
         volumeRange.addEventListener('input', () => {
