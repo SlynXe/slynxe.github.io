@@ -137,7 +137,7 @@
     </div>
 
     <!-- Vidéo de fond en plein écran -->
-    <video id="background-video" autoplay muted loop class="background-video blurred">
+    <video id="background-video" loop class="background-video blurred">
         <source src="https://cdn.discordapp.com/attachments/1286420716907921428/1301220158223945728/Cote_edit.mp4?ex=672aef75&is=67299df5&hm=b729d25ba6ae34f6d2b8574d307bd6989a52c9e36e29af471d9acfb73c35375d&" type="video/mp4">
         Votre navigateur ne supporte pas les vidéos HTML5.
     </video>
@@ -165,12 +165,16 @@
             // Cache l'écran de démarrage
             startScreen.style.opacity = '0';
 
-            // Enlève l'effet de flou après un léger délai
+            // Enlève l'effet de flou et démarre la vidéo après un léger délai
             setTimeout(() => {
                 startScreen.style.display = 'none';
                 backgroundVideo.classList.remove('blurred');
                 profileContainer.classList.remove('blurred');
                 profileContainer.style.opacity = '1'; // Rend le contenu du profil visible
+
+                // Démarre la vidéo avec le son à 50%
+                backgroundVideo.volume = 0.5;
+                backgroundVideo.play();
             }, 500);
         }
     </script>
