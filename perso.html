@@ -168,6 +168,8 @@
         <h1>'SlynXe</h1>
         <p class="status">"On cherche le repos en combattant quelques obstacles, et si on les a surmontés, le repos devient insupportable par l’ennui qu’il engendre."</p>
 
+        <div class="view-counter" id="view-counter">Nombre de vues : 0</div>
+
         <div class="icons">
             <a href="https://discord.gg/andarisrp" target="_blank" class="icon"><i class="fab fa-discord"></i></a>
             <a href="https://twitter.com/iTzSlynXeD" target="_blank" class="icon"><i class="fab fa-twitter"></i></a>
@@ -198,6 +200,8 @@
                 backgroundVideo.play();
                 backgroundVideo.volume = 0.1;
             }, 500);
+            // Incrémenter le compteur de vues
+            incrementViewCounter();
         }
 
         function toggleMute() {
