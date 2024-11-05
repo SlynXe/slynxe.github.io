@@ -144,7 +144,7 @@
 </head>
 <body>
     <!-- Bouton Mute -->
-    <button class="mute-button" id="mute-button" onclick="toggleMute()">🔈 Mute</button>
+    <button class="mute-button" id="mute-button" onclick="toggleMute()">🔊</button>
 
     <!-- Message d'accueil avec effet de flou -->
     <div class="start-screen" id="start-screen">
@@ -204,7 +204,7 @@
 
             if (isMuted) {
                 backgroundVideo.muted = false;
-                muteButton.textContent = "🔈";
+                muteButton.textContent = "🔊";
             } else {
                 backgroundVideo.muted = true;
                 muteButton.textContent = "🔇";
