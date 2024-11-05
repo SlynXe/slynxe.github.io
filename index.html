@@ -4,34 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SlynXe 🌙</title>
+
+    <!-- SEO et description -->
+    <meta name="description" content="Découvrez le profil de SlynXe, un jeune développeur passionné de création et d'innovation dans le domaine du développement web et de la programmation.">
+    <meta name="author" content="SlynXe">
+    <meta name="keywords" content="SlynXe, développeur, profil, portfolio, développement web, programmation, créateur de contenu">
+    <meta http-equiv="Content-Language" content="fr">
+
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="Profil de SlynXe - Développeur et créateur de contenu">
+    <meta property="og:description" content="Explorez le profil de SlynXe, un jeune développeur talentueux et passionné par l'innovation dans la création web.">
+    <meta property="og:image" content="https://cdn.discordapp.com/avatars/705852034695561256/a_0fdb8cbd71ae21b0c92ad31af59cc7dc.gif">
+    <meta property="og:url" content="https://slynxe.fr">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Profil de SlynXe - Développeur et créateur de contenu">
+    <meta name="twitter:description" content="Découvrez SlynXe, jeune développeur innovant dans le domaine du web.">
+    <meta name="twitter:image" content="https://cdn.discordapp.com/avatars/705852034695561256/a_0fdb8cbd71ae21b0c92ad31af59cc7dc.gif">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1085730173774737408/1303113302179577876/7cafc03aba5ac7c4d21458f2f54055db.png?ex=672a9255&is=672940d5&hm=f2f927c14d56ab668d9fe06149bb585596e89e2ed1ee730eed358d120bd5c950&" type="image/png">
+    <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1085730173774737408/1303113302179577876/7cafc03aba5ac7c4d21458f2f54055db.png?ex=672a9255&is=672940d5&hm=f2f927c14d56ab668d9fe06149bb585596e89e2ed1ee730eed358d120bd5c950&" type="image/png">
+
+    <!-- Liens pour les polices et les styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/1085730173774737408/1303113302179577876/7cafc03aba5ac7c4d21458f2f54055db.png?ex=672a9255&is=672940d5&hm=f2f927c14d56ab668d9fe06149bb585596e89e2ed1ee730eed358d120bd5c950&" type="image/png"> <!-- Favicon -->
-    <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1085730173774737408/1303113302179577876/7cafc03aba5ac7c4d21458f2f54055db.png?ex=672a9255&is=672940d5&hm=f2f927c14d56ab668d9fe06149bb585596e89e2ed1ee730eed358d120bd5c950&" type="image/png"> <!-- Favicon -->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Styles CSS -->
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #121212; /* Fond sombre */
+            background-color: #121212;
             color: #e0e0e0;
             text-align: center;
             line-height: 1.6;
         }
-
         header {
-            background: url('https://cdn.discordapp.com/attachments/863888458845650984/1302827469841104906/8980fea9be549f56d6c99426964df374.png?ex=672b8262&is=672a30e2&hm=7c6ea4ee80ba37fd5d03414b878e29f4566eb1baa6efb7bcb349c624add07591&') no-repeat center center/cover; /* Image de fond */
-            padding: 100px 20px; /* Plus d'espace en haut */
+            background: url('https://cdn.discordapp.com/attachments/863888458845650984/1302827469841104906/8980fea9be549f56d6c99426964df374.png?ex=672b8262&is=672a30e2&hm=7c6ea4ee80ba37fd5d03414b878e29f4566eb1baa6efb7bcb349c624add07591&') no-repeat center center/cover;
+            padding: 100px 20px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
             position: relative;
-            color: #E1BEE7; /* Texte clair */
+            color: #E1BEE7;
         }
-
         header::after {
             content: '';
             position: absolute;
@@ -39,18 +61,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Couche sombre pour améliorer la lisibilité du texte */
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1;
         }
-
         h1 {
-            font-size: 4.5em; /* Augmentation de la taille */
+            font-size: 4.5em;
             margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Ombre plus prononcée */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
             position: relative;
             z-index: 2;
         }
-
         header p {
             font-size: 1.5em;
             margin-top: 10px;
@@ -58,7 +78,6 @@
             position: relative;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
         }
-
         main {
             max-width: 900px;
             margin: 40px auto;
@@ -68,11 +87,9 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s;
         }
-
         main:hover {
-            transform: translateY(-5px); /* Effet de flottement */
+            transform: translateY(-5px);
         }
-
         section {
             margin: 30px 0;
             padding: 20px;
@@ -81,79 +98,66 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             transition: background-color 0.3s;
         }
-
         section:hover {
-            background-color: #3E3E3E; /* Changement de couleur au survol */
+            background-color: #3E3E3E;
         }
-
         h2 {
-            color: #E1BEE7; /* Texte clair */
+            color: #E1BEE7;
             margin-bottom: 15px;
             font-size: 2.5em;
             position: relative;
         }
-
         h2::after {
             content: '';
             display: block;
             height: 2px;
             width: 50px;
-            background: #D5006D; /* Accent */
+            background: #D5006D;
             margin: 10px auto;
             border-radius: 5px;
         }
-
-        .about p,
-        .contact p {
+        .about p, .contact p {
             font-size: 1.2em;
         }
-
         .skills-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             margin: 10px 0;
         }
-
         .skill {
-            background-color: #E1BEE7; /* Violet clair */
+            background-color: #E1BEE7;
             color: black;
             padding: 10px 20px;
             border-radius: 5px;
             margin: 5px;
             transition: transform 0.3s, background-color 0.3s;
             display: flex;
-            align-items: center; /* Centrer le texte verticalement */
+            align-items: center;
         }
-
         .skill i {
-            margin-right: 10px; /* Espace entre l'icône et le texte */
+            margin-right: 10px;
         }
-
         .skill:hover {
             transform: scale(1.1);
-            background-color: #A44CD0; /* Violet plus clair au survol */
+            background-color: #A44CD0;
         }
-
         .experience-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille réactive */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             text-align: left;
             margin-top: 10px;
             gap: 10px;
         }
-
         .experience-item {
             background-color: #3E3E3E;
             padding: 15px;
             border-radius: 5px;
             transition: transform 0.3s;
         }
-
         .experience-item:hover {
-            transform: scale(1.05); /* Légère augmentation au survol */
+            transform: scale(1.05);
         }
-
         footer {
             margin-top: 40px;
             font-size: 0.9em;
@@ -161,37 +165,29 @@
             padding: 10px 0;
             border-top: 1px solid #444;
         }
-
         footer p {
             margin: 0;
         }
-
-        /* Styles pour les liens */
         a {
             color: #E1BEE7;
             text-decoration: none;
             transition: color 0.3s;
         }
-
         a:hover {
-            color: #D5006D; /* Couleur au survol */
+            color: #D5006D;
         }
-
-        /* Styles pour le profil Discord */
         .discord-profile {
             margin: 20px 0;
         }
-
         .discord-profile img {
-            border-radius: 8px; /* Bord arrondi pour l'image */
-            width: 100%; /* Ajuste à la largeur du conteneur */
-            max-width: 450px; /* Limite la taille de l'image */
-            height: auto; /* Ajuste la hauteur automatiquement */
+            border-radius: 8px;
+            width: 100%;
+            max-width: 450px;
+            height: auto;
             transition: transform 0.3s;
         }
-
         .discord-profile img:hover {
-            transform: scale(1.05); /* Effet de zoom au survol */
+            transform: scale(1.05);
         }
     </style>
 </head>
