@@ -182,6 +182,7 @@
     </div>
 
     <script>
+        const apiUrl = 'http://game2.3forlife.fr:30613/views'; // Remplace par l'URL de ton API
         let isMuted = false;
 
         function startSite() {
@@ -223,17 +224,34 @@
         }
 
         function incrementViewCount() {
-            // Récupérer le compteur de vues depuis localStorage
-            let viewCount = localStorage.getItem('viewCount') || 0;
-            viewCount++;
-            localStorage.setItem('viewCount', viewCount);
-            document.getElementById('view-count').textContent = viewCount;
+            // Envoie une requête POST à l'API pour incrémenter le compteur de vues
+            fetch(apiUrl, { method: 'POST' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur lors de l\'incrémentation du compteur de vues.');
+                    }
+                    return response.text();
+                })
+                .then(() => {
+                    // Récupérer le compteur de vues mis à jour
+                    fetchViewCount();
+                })
+                .catch(error => console.error(error));
+        }
+
+        function fetchViewCount() {
+            // Envoie une requête GET à l'API pour récupérer le compteur de vues
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('view-count').textContent = data.count;
+                })
+                .catch(error => console.error('Erreur lors de la récupération du compteur de vues:', error));
         }
 
         // Afficher le compteur de vues lors du chargement de la page
         window.onload = function() {
-            let viewCount = localStorage.getItem('viewCount') || 0;
-            document.getElementById('view-count').textContent = viewCount;
+            fetchViewCount(); // Récupère le compteur de vues à partir de l'API
         };
     </script>
 </body>
