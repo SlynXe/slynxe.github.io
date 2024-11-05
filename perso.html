@@ -82,10 +82,12 @@
 
         /* Style pour le contrôle du volume */
         .volume-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin-top: 15px;
+            z-index: 1;
         }
 
         input[type="range"] {
@@ -116,6 +118,12 @@
         Votre navigateur ne supporte pas les vidéos HTML5.
     </video>
 
+    <!-- Contrôle du volume -->
+    <div class="volume-container">
+        <label for="volume-range" style="margin-right: 10px;">Volume :</label>
+        <input type="range" id="volume-range" min="0" max="1" step="0.1" value="0.5">
+    </div>
+
     <!-- Container du profil -->
     <div class="profile-container">
         <img src="https://cdn.discordapp.com/avatars/705852034695561256/a_0fdb8cbd71ae21b0c92ad31af59cc7dc.gif" alt="SlynXe Avatar" class="avatar">
@@ -127,12 +135,6 @@
             <a href="https://twitter.com/iTzSlynXeD" target="_blank" class="icon"><i class="fab fa-twitter"></i></a>
             <a href="https://github.com/slynxe" target="_blank" class="icon"><i class="fab fa-github"></i></a>
             <a href="https://slynxe.fr" target="_blank" class="icon"><i class="fas fa-globe"></i></a>
-        </div>
-
-        <!-- Contrôle du volume -->
-        <div class="volume-container">
-            <label for="volume-range" style="margin-right: 10px;">Volume :</label>
-            <input type="range" id="volume-range" min="0" max="1" step="0.1" value="0.5">
         </div>
     </div>
 
