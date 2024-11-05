@@ -169,10 +169,6 @@
 
         <p class="status">"On cherche le repos en combattant quelques obstacles, et si on les a surmontés, le repos devient insupportable par l’ennui qu’il engendre."</p>
 
-        <div class="view-counter">
-            <i class="fas fa-eye"></i> <span id="view-count">0</span> <!-- Compteur de vues -->
-        </div>
-
         <div class="icons">
             <a href="https://discord.gg/andarisrp" target="_blank" class="icon"><i class="fab fa-discord"></i></a>
             <a href="https://twitter.com/iTzSlynXeD" target="_blank" class="icon"><i class="fab fa-twitter"></i></a>
@@ -182,7 +178,6 @@
     </div>
 
     <script>
-        const apiUrl = 'http://game2.3forlife.fr:30613/views'; // Remplace par l'URL de ton API
         let isMuted = false;
 
         function startSite() {
@@ -222,37 +217,6 @@
             }
             isMuted = !isMuted;
         }
-
-        function incrementViewCount() {
-            // Envoie une requête POST à l'API pour incrémenter le compteur de vues
-            fetch(apiUrl, { method: 'POST' })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erreur lors de l\'incrémentation du compteur de vues.');
-                    }
-                    return response.text();
-                })
-                .then(() => {
-                    // Récupérer le compteur de vues mis à jour
-                    fetchViewCount();
-                })
-                .catch(error => console.error(error));
-        }
-
-        function fetchViewCount() {
-            // Envoie une requête GET à l'API pour récupérer le compteur de vues
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('view-count').textContent = data.count;
-                })
-                .catch(error => console.error('Erreur lors de la récupération du compteur de vues:', error));
-        }
-
-        // Afficher le compteur de vues lors du chargement de la page
-        window.onload = function() {
-            fetchViewCount(); // Récupère le compteur de vues à partir de l'API
-        };
     </script>
 </body>
 </html>
