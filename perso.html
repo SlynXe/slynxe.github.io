@@ -80,24 +80,38 @@
             color: #9900d5;
         }
 
-        /* Style pour le bouton de volume */
-        .volume-button {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5em;
-            cursor: pointer;
+        /* Style pour le contrôle du volume */
+        .volume-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-top: 15px;
         }
 
-        .volume-button:hover {
-            color: #9900d5;
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100px;
+            height: 5px;
+            background: #9900d5;
+            border-radius: 5px;
+            outline: none;
+            margin-left: 10px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <!-- Vidéo de fond en plein écran -->
-    <video id="background-video" autoplay muted loop class="background-video">
+    <video id="background-video" autoplay loop class="background-video">
         <source src="https://cdn.discordapp.com/attachments/1286420716907921428/1301220158223945728/Cote_edit.mp4?ex=672aef75&is=67299df5&hm=b729d25ba6ae34f6d2b8574d307bd6989a52c9e36e29af471d9acfb73c35375d&" type="video/mp4">
         Votre navigateur ne supporte pas les vidéos HTML5.
     </video>
@@ -115,26 +129,23 @@
             <a href="https://slynxe.fr" target="_blank" class="icon"><i class="fas fa-globe"></i></a>
         </div>
 
-        <!-- Bouton de volume -->
-        <button class="volume-button" id="volume-toggle"><i class="fas fa-volume-up"></i></button>
+        <!-- Contrôle du volume -->
+        <div class="volume-container">
+            <label for="volume-range" style="margin-right: 10px;">Volume :</label>
+            <input type="range" id="volume-range" min="0" max="1" step="0.1" value="0.5">
+        </div>
     </div>
 
     <script>
         const video = document.getElementById('background-video');
-        const volumeButton = document.getElementById('volume-toggle');
+        const volumeRange = document.getElementById('volume-range');
 
         // Réglez le volume à 50 % par défaut
         video.volume = 0.5;
 
-        // Fonction pour gérer le son
-        volumeButton.addEventListener('click', () => {
-            if (video.muted) {
-                video.muted = false;
-                volumeButton.innerHTML = '<i class="fas fa-volume-up"></i>';
-            } else {
-                video.muted = true;
-                volumeButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            }
+        // Écouteur d'événements pour le contrôle de volume
+        volumeRange.addEventListener('input', () => {
+            video.volume = volumeRange.value;
         });
     </script>
 </body>
