@@ -15,7 +15,6 @@
             height: 100%;
             overflow: hidden;
             color: #fff;
-            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -30,6 +29,7 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
+            transition: filter 0.5s;
         }
 
         /* Container du profil */
@@ -41,8 +41,54 @@
             width: 350px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
             z-index: 1;
+            opacity: 0; /* Initialement caché */
+            transition: opacity 0.5s;
         }
 
+        /* Message d'accueil avec effet de flou */
+        .start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            transition: opacity 0.5s;
+        }
+
+        .start-screen-content {
+            text-align: center;
+            color: #fff;
+            font-size: 1.5em;
+            padding: 20px;
+        }
+
+        .start-screen button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background: #9900d5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .start-screen button:hover {
+            background-color: #7a00a8;
+        }
+
+        /* Effet flou */
+        .blurred {
+            filter: blur(8px);
+        }
+
+        /* Autres styles */
         .avatar {
             border-radius: 50%;
             width: 100px;
@@ -79,61 +125,25 @@
             opacity: 1;
             color: #9900d5;
         }
-
-        /* Style pour le contrôle du volume */
-        .volume-container {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            z-index: 1;
-        }
-
-        input[type="range"] {
-            -webkit-appearance: none;
-            width: 100px;
-            height: 5px;
-            background: #9900d5;
-            border-radius: 5px;
-            outline: none;
-            margin-left: 10px;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none; 
-            appearance: none; 
-            width: 15px; 
-            height: 15px; 
-            background: #fff; 
-            border-radius: 50%; 
-            cursor: pointer; 
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 15px; 
-            height: 15px; 
-            background: #fff; 
-            border-radius: 50%; 
-            cursor: pointer; 
-        }
     </style>
 </head>
 <body>
+    <!-- Message d'accueil avec effet de flou -->
+    <div class="start-screen" id="start-screen">
+        <div class="start-screen-content">
+            <p>Bienvenue sur le profil de SlynXe</p>
+            <button onclick="startSite()">Commencer</button>
+        </div>
+    </div>
+
     <!-- Vidéo de fond en plein écran -->
-    <video id="background-video" autoplay muted loop class="background-video">
+    <video id="background-video" autoplay muted loop class="background-video blurred">
         <source src="https://cdn.discordapp.com/attachments/1286420716907921428/1301220158223945728/Cote_edit.mp4?ex=672aef75&is=67299df5&hm=b729d25ba6ae34f6d2b8574d307bd6989a52c9e36e29af471d9acfb73c35375d&" type="video/mp4">
         Votre navigateur ne supporte pas les vidéos HTML5.
     </video>
 
-    <!-- Contrôle du volume -->
-    <div class="volume-container">
-        <label for="volume-range" style="margin-right: 10px;">Volume :</label>
-        <input type="range" id="volume-range" min="0" max="1" step="0.1" value="0.5">
-    </div>
-
     <!-- Container du profil -->
-    <div class="profile-container">
+    <div class="profile-container blurred" id="profile-container">
         <img src="https://cdn.discordapp.com/avatars/705852034695561256/a_0fdb8cbd71ae21b0c92ad31af59cc7dc.gif" alt="SlynXe Avatar" class="avatar">
         <h1>'SlynXe</h1>
         <p class="status">"Tout le monde te quitte ? Vaste blague."</p>
@@ -147,21 +157,22 @@
     </div>
 
     <script>
-        const video = document.getElementById('background-video');
-        const volumeRange = document.getElementById('volume-range');
+        function startSite() {
+            const startScreen = document.getElementById('start-screen');
+            const backgroundVideo = document.getElementById('background-video');
+            const profileContainer = document.getElementById('profile-container');
 
-        // Définir le volume par défaut
-        video.volume = 0.5;
+            // Cache l'écran de démarrage
+            startScreen.style.opacity = '0';
 
-        // Retirer le mute après le démarrage de la vidéo
-        video.addEventListener('play', () => {
-            video.muted = false;
-        });
-
-        // Écouteur d'événements pour le contrôle de volume
-        volumeRange.addEventListener('input', () => {
-            video.volume = volumeRange.value;
-        });
+            // Enlève l'effet de flou après un léger délai
+            setTimeout(() => {
+                startScreen.style.display = 'none';
+                backgroundVideo.classList.remove('blurred');
+                profileContainer.classList.remove('blurred');
+                profileContainer.style.opacity = '1'; // Rend le contenu du profil visible
+            }, 500);
+        }
     </script>
 </body>
 </html>
