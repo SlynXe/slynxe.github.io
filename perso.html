@@ -168,38 +168,40 @@
         <h1>'SlynXe</h1>
         <p class="status">"On cherche le repos en combattant quelques obstacles, et si on les a surmontés, le repos devient insupportable par l’ennui qu’il engendre."</p>
 
-        <div class="view-counter" id="view-counter">Nombre de vues : 0</div>
-
         <div class="icons">
             <a href="https://discord.gg/andarisrp" target="_blank" class="icon"><i class="fab fa-discord"></i></a>
             <a href="https://twitter.com/iTzSlynXeD" target="_blank" class="icon"><i class="fab fa-twitter"></i></a>
             <a href="https://github.com/slynxe" target="_blank" class="icon"><i class="fab fa-github"></i></a>
             <a href="https://slynxe.fr" target="_blank" class="icon"><i class="fas fa-globe"></i></a>
         </div>
+
+        <!-- Affichage du compteur de vues avec icône d'œil -->
+        <div class="view-counter" id="view-counter">
+            <i class="fas fa-eye"></i><span id="view-count">0</span>
+        </div>
     </div>
 
     <script>
         let isMuted = false;
 
+        // Fonction pour démarrer le site
         function startSite() {
             const startScreen = document.getElementById('start-screen');
             const backgroundVideo = document.getElementById('background-video');
             const profileContainer = document.getElementById('profile-container');
 
-            // Cache l'écran de démarrage
             startScreen.style.opacity = '0';
 
-            // Enlève l'effet de flou et démarre la vidéo après un léger délai
             setTimeout(() => {
                 startScreen.style.display = 'none';
                 backgroundVideo.classList.remove('blurred');
                 profileContainer.classList.remove('blurred');
                 profileContainer.style.opacity = '1';
 
-                // Démarre la vidéo avec le son à 10% de volume
                 backgroundVideo.play();
                 backgroundVideo.volume = 0.1;
             }, 500);
+
             // Incrémenter le compteur de vues
             incrementViewCounter();
         }
@@ -220,10 +222,10 @@
 
         // Fonction pour le compteur de vues
         function incrementViewCounter() {
-            let viewCount = localStorage.getItem('viewCount') || 0;
+            let viewCount = localStorage.getItem('viewCount') || 1294;
             viewCount = parseInt(viewCount) + 1;
             localStorage.setItem('viewCount', viewCount);
-            document.getElementById('view-counter').innerText = `Nombre de vues : ${viewCount}`;
+            document.getElementById('view-count').innerText = viewCount;
         }
     </script>
 </body>
