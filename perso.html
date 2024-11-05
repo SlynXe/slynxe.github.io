@@ -213,6 +213,14 @@
             }
             isMuted = !isMuted;
         }
+
+        // Fonction pour le compteur de vues
+        function incrementViewCounter() {
+            let viewCount = localStorage.getItem('viewCount') || 0;
+            viewCount = parseInt(viewCount) + 1;
+            localStorage.setItem('viewCount', viewCount);
+            document.getElementById('view-counter').innerText = `Nombre de vues : ${viewCount}`;
+        }
     </script>
 </body>
 </html>
